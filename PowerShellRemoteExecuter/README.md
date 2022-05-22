@@ -1,5 +1,5 @@
 # PSRemoteExecuter
-## _Devoloped by Daniel Mandelblat_
+## _Suitable only for Windows platforms_
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
