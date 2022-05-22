@@ -1,14 +1,8 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 DESCRIPTION= "Execute PowerShell script on remote host"
-LONG_DESCRIPTION = "Execute Powershell script on your local machine and on remote domain hosts.\n" \
-                   "from psremoter.connector import Execute\n" \
-                   "exec = Execute(hostname='hostname', username='username' , password='password', domain='myDomain', command='get-process', powershell=True)\n" \
-                   "r.remote_execution()\n" \
-                   "print(r.status)\n" \
-                   "print(r.return_code)\n" \
-                   "print(r.output)\n"
+LONG_DESCRIPTION = "Github page: https://github.com/danielMandelblat/PythonPackages/tree/master/PowerShellRemoteExecuter "
 
 #Setting up
 setup(
