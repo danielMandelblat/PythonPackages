@@ -11,8 +11,8 @@ This package will help you to execute remote PowerSell script on other Windows p
 - Execute remote PowerShell scripts (Using invoke-command PS command)
 
 
-## Using
-###install PSRemoter using pip
+##Using
+install PSRemoter using pip:<br>
 pip install PSRemoter
 
 ```
@@ -23,16 +23,11 @@ exec= Execute(hostname="hostname", username="username" , password='password', do
 exec.remote_execution()
 
 #Read execution status
-print(r.status)
+print(r.status) #True
 
 #Read return code
-print(r.return_code)
+print(r.return_code) #0 
 
 #Read console output
-print(r.output)
+print(r.output) #DnsServer01
 ````
-
-###Output:<br>
-True<br>
-0<br>
-dnsserver
