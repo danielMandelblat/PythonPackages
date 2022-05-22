@@ -12,10 +12,9 @@ This package will help you to execute remote PowerSell script on other Windows p
 
 
 ## Using
-
-- r= Execute(hostname="hostname", username="username" , password='password', domain='myDomain', command="get-process", powershell=True)
-r.remote_execution()
-print(r.status)
-print(r.return_code)
+r= Execute(hostname="hostname", username="username" , password='password', domain='myDomain', command="get-process", powershell=True)<br>
+r.remote_execution()<br>
+print(r.status)<br>
+print(r.return_code)<br>
 print(r.output)
 
