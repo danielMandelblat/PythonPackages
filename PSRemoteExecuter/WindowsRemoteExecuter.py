@@ -81,14 +81,3 @@ class Execute(subprocess.Popen):
 
     def __str__(self):
         return f"Result ({self.status=}), Return Code ({self.return_code=}), Output ({self.output[:30]=})"
-
-command = """
-get-process
-"""
-r= Execute(hostname="hostname", username="username" , password='password', domain='myDomain', command=command, powershell=True)
-r.remote_execution()
-print(r.status)
-print(r.return_code)
-print(r.output)
-
-
