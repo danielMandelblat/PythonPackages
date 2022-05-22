@@ -32,4 +32,3 @@ print(exec.return_code) #0
 #Read console output
 print(exec.output) #DnsServer01
 ````
-.
