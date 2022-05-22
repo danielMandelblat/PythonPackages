@@ -12,9 +12,27 @@ This package will help you to execute remote PowerSell script on other Windows p
 
 
 ## Using
-r= Execute(hostname="hostname", username="username" , password='password', domain='myDomain', command="get-process", powershell=True)<br>
-r.remote_execution()<br>
-print(r.status)<br>
-print(r.return_code)<br>
-print(r.output)
+###install PSRemoter using pip
+pip install PSRemoter
 
+```
+from psremoter.connector import Execute
+exec= Execute(hostname="hostname", username="username" , password='password', domain='myDomain', command="hostame", powershell=True)
+
+#Execute command on remote host
+exec.remote_execution()
+
+#Read execution status
+print(r.status)
+
+#Read return code
+print(r.return_code)
+
+#Read console output
+print(r.output)
+````
+
+###Output:<br>
+True<br>
+0<br>
+dnsserver
