@@ -14,7 +14,7 @@ class Execute(subprocess.Popen):
             raise Exception(f"Current system ({system}) is not valid please execute this module from [Windows] platform.")
         return super(Execute, cls).__new__(cls)
 
-    def __init__(self, hostname:str, username:str, password:str, command:str, powershell=False, domain=None):
+    def __init__(self, hostname:str, command:str,username=None, password=None, powershell=False, domain=None):
         if domain:
             self.domain = domain + "\\"
         else:
@@ -45,9 +45,10 @@ class Execute(subprocess.Popen):
     def local_execution(self):
         if self.powershell:
             self.build_powershell_command()
-            self.command = f"powershell.exe -ExecutionPolicy Bypass -File {self._script_file}"
+            self.command = f"%SystemRoot%\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -File {self._script_file}"
 
         super().__init__(self.command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
         self.output= self.communicate()[0].decode('utf-8')
         self.return_code = self.returncode
 
@@ -64,6 +65,12 @@ class Execute(subprocess.Popen):
     def remote_execution(self):
         if not self.powershell:
             raise Exception('remote_execution method working only as PowerShell script...\nPlease change your script to a PowerShell one.')
+        elif not self.username:
+            raise Exception(
+                f'Please add remote host ({self.hostname}) username.')
+        elif not self.password:
+            raise Exception(
+                f'Please add remote host ({self.hostname}) password.')
 
         self.command= """
             $User = "{}{}"

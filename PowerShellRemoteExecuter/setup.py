@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-VERSION = "0.0."
+VERSION = "0.0.5"
 DESCRIPTION= "Execute PowerShell script on remote host"
-LONG_DESCRIPTION = "Github page: https://github.com/danielMandelblat/PythonPackages/tree/master/PowerShellRemoteExecuter "
+LONG_DESCRIPTION = "Github page: https://github.com/danielMandelblat/PythonPackages/tree/master/PowerShellRemoteExecuterלו "
 
 #Setting up
 setup(
