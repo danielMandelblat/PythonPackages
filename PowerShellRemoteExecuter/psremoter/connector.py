@@ -4,9 +4,9 @@ import platform
 
 class Execute(subprocess.Popen):
     _script_file: str = None
-    output: str = ...
-    return_code: int = ...
-    status: bool = ...
+    output: str = None
+    return_code: int = None
+    status: bool = None
 
     def __new__(cls, *args, **kwargs):
         system= str(platform.system()).lower()
@@ -45,7 +45,7 @@ class Execute(subprocess.Popen):
     def local_execution(self):
         if self.powershell:
             self.build_powershell_command()
-            self.command = f"%SystemRoot%\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -File {self._script_file}"
+            self.command = f"%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -File {self._script_file}"
 
         super().__init__(self.command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
@@ -87,4 +87,4 @@ class Execute(subprocess.Popen):
         return self.local_execution()
 
     def __str__(self):
-        return f"Result ({self.status=}), Return Code ({self.return_code=}), Output ({self.output[:30]=})"
+        return f"Result ({self.status}), Return Code ({self.return_code}), Output ({self.output=})"
